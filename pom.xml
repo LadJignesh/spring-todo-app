@@ -8,13 +8,13 @@
 		<version>2.5.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.n</groupId>
+	<groupId>com.application</groupId>
 	<artifactId>ey-todo-app</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ey-todo-app</name>
 	<description>To Do Application with user login</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>1.8</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -60,6 +60,17 @@
 		    <artifactId>springfox-swagger-ui</artifactId>
 		    <version>3.0.0</version>
 		</dependency>
+		<dependency>
+    <groupId>org.junit.vintage</groupId>
+    <artifactId>junit-vintage-engine</artifactId>
+    <scope>test</scope>
+    <exclusions>
+        <exclusion>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-core</artifactId>
+        </exclusion>
+    </exclusions>
+</dependency>
 	</dependencies>
 
 	<build>

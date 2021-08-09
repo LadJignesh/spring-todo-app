@@ -4,36 +4,26 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service(value = "userService")
 public class UserServiceImpl implements UserService{
 	
-private static List<User> users = new ArrayList<>();
+	@Autowired
+	UserRepository userRepository;
 	
-	private static int usersCount = 3;
-	
-	static {
-		users.add(new User(1, "Adam", "password"));
-		users.add(new User(2, "Jignesh", "password"));
-		users.add(new User(3, "Loki","password"));
+	public void saveOrUpdate(UserEntity user) {
+		userRepository.save(user);
 	}
 	
-	public User save(User user) {
-		if(user.getId() == null) {
-			user.setId(++usersCount);
-		}
-		users.add(user);
-		return user;
+	public UserEntity findUser(String username) {
+		return userRepository.findByUsername(username);
 	}
 	
-	public User findOne(int id) {
-		for (User user:users) {
-			if(user.getId()==id) {
-				return user;
-			}
-		}
-		return null;
-	}
+	public void deleteUser(int id)   
+	{  
+		userRepository.deleteById(id);  
+	}  
 
 }

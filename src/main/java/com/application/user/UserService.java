@@ -2,8 +2,10 @@ package com.application.user;
 
 public interface UserService {
 	
-	User save(User user);
+	void saveOrUpdate(UserEntity user);
 	
-	User findOne(int id);
+	UserEntity findUser(String username);
+	
+	void deleteUser(int id);
 
 }

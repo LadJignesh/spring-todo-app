@@ -1,0 +1,3 @@
+INSERT INTO TBL_USERS VALUES (11, 'Jerry', 'pwd123');    
+INSERT INTO TBL_USERS VALUES (12, 'John', 'pwd123');    
+INSERT INTO TBL_USERS VALUES (13, 'Mark', 'pwd123');  

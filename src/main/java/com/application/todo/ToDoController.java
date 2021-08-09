@@ -25,36 +25,28 @@ public class ToDoController {
 
 	
 	@GetMapping(path = "/todo/{userId}")
-	public List<ToDo> getToDoTask(@PathVariable int userId) {
+	public List<TaskEntity> getToDoTask(@PathVariable int userId) {
 		return toDoService.getAllTasks(userId);
 	}
 	
 	@PostMapping(path = "/todo/{userId}")
-	public ResponseEntity<Object> createTask(@Valid @RequestBody ToDo todoTask, @PathVariable int userId) throws Exception {
+	public void createTask(@Valid @RequestBody TaskEntity todoTask, @PathVariable int userId) throws Exception {
 		if(todoTask.getUserId() != userId) {
 			throw new Exception("Task cannot be created");
 		}
 		
 		toDoService.createTask(todoTask);
 		
-		URI location = ServletUriComponentsBuilder
-				.fromCurrentRequest()
-				.buildAndExpand(userId)
-				.toUri();
-		System.out.println(ResponseEntity.created(location).build());
-			
-		return ResponseEntity.created(location).build();
 	}
 	
 	@PutMapping(path = "/todo/{userId}")
-	public String updateTask(@Valid @RequestBody ToDo todoTask, @PathVariable int userId) {
-		toDoService.updateTask(todoTask);
+	public String updateTask(@Valid @RequestBody TaskEntity todoTask, @PathVariable int userId) {
+		toDoService.createTask(todoTask);
 		return "redirect:/todo/" + userId;
 	}
 	
-	@DeleteMapping(path = "/todo/{userId}")
-	public String deleteTask(@PathVariable int userId) {
-		toDoService.removeRask(userId);
-		return "redirect:/todo/" + userId;
+	@DeleteMapping(path = "/todo/{taskId}")
+	public void deleteTask(@PathVariable int taskId) {
+		toDoService.removeTask(taskId);
 	}
 }

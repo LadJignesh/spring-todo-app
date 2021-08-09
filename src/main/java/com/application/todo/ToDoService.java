@@ -5,11 +5,9 @@ import java.util.List;
 
 public interface ToDoService {
 	
-	List<ToDo> getAllTasks(int userId);
+	List<TaskEntity> getAllTasks(int userId);
 	
-	void createTask(ToDo task);
+	void createTask(TaskEntity task);
 	
-	void updateTask(ToDo task);
-	
-	void removeRask(int taskId);
+	void removeTask(int taskId);
 }
