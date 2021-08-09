@@ -7,34 +7,36 @@ The project structure is based on the Domain Driven Design and is divided as 2 d
 #
 ## User domain: 
 - This domain consist of 3 REST service which are used to authenticate user, create new user and delete user
-		- Rest Endpoints for the user:
-			URI: /user
-			Endpoints: /user/{username}/{password} : GET endpoint 
-							- Returns userId if user is found else returns 0.
-							- The OAuth2 authentication could be used here in order to add security 
-					 : /user :POST endpoint
-							- requires USER object and adds used to the db
-							- returns userId once the user is added
-					: /user/{userId} : DELETE mapping
+	- Rest Endpoints for the user:
+		URI: /user
+		Endpoints: 
+			- /user/{username}/{password} : GET endpoint 
+				- Returns userId if user is found else returns 0.
+				- The OAuth2 authentication could be used here in order to add security 
+			- /user :POST endpoint
+				- requires USER object and adds used to the db
+				- returns userId once the user is added
+			- /user/{userId} : DELETE mapping
 							- void method which deletes the user from the db
 
 ## ToDo Domain: 
 - ToDo domain: This domain is created to maintain all the taks list entered by the user. This domain has 4 REST endpoints to add task, get all the task for user, update task and delete task
-		Rest Endpoints for the user:
-			URI: /todo
-			Endpoints: /todo/{userId} : GET endpoint 
-							- Returns all the task for that userId.
-					 : /todo/{userId} :POST endpoint and PUT endpoint
-							- requires Task object and creates new task/ updates existing task for that user
-							- returns userId once the user is added
-					: /todo/{taskId} : DELETE mapping
+	- Rest Endpoints for the user:
+	- URI: /todo
+	-Endpoints: 
+		- /todo/{userId} : GET endpoint 
+			- Returns all the task for that userId.
+		- /todo/{userId} :POST endpoint and PUT endpoint
+			- requires Task object and creates new task/ updates existing task for that user
+			- returns userId once the user is added
+		- /todo/{taskId} : DELETE mapping
 							- void method which deletes the task for the user from the db
 							
 
 ## Development server
 
 ### Running the project:
-1) To run this project we need to use maven. Following commands could be used for starting the server.
+- To run this project we need to use maven. Following commands could be used for starting the server.
 		- mvn clean install  (All the libraries are downladed and jar file is created ini target folder)
 		- mvn spring-boot:run
 		
