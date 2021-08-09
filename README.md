@@ -66,27 +66,6 @@ Run ng test to execute the unit tests via Karma.
  - Add security layer on top of the every REST endpoint to make it more secure.
  - Move the above project related information to SWAGGER UI to give more clarity to consumer and also the developers.
 
-# Angular html pages
+## Angular html pages
 
-### Login page
-
-
-### Signup page
-
-
-Task screen:
-
-
-Creating Task:
-
-
-After task creation:
-
-
-Task screen after Update
-
-
-
-Task screen after Delete
-
-
+All the images of the screen could be found in README.pdf attached in the repository
